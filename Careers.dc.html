@@ -50,21 +50,32 @@
 <div style="position:relative;z-index:1;color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif">
 
   <div style="position:fixed;z-index:90;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 28px))">
-    <nav style="height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 19px;border:1px solid var(--border);border-radius:19px;background:var(--surface2);backdrop-filter:blur(22px) saturate(165%);-webkit-backdrop-filter:blur(22px) saturate(165%);box-shadow:0 12px 38px var(--shadow)">
+    <nav style="height:58px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 14px 0 19px;border:1px solid var(--border);border-radius:19px;background:var(--surface2);backdrop-filter:blur(22px) saturate(165%);-webkit-backdrop-filter:blur(22px) saturate(165%);box-shadow:0 12px 38px var(--shadow)">
       <a href="Silenzio Landing.dc.html" style="display:flex;align-items:center;gap:10px;font-weight:660;letter-spacing:-.035em;font-size:17px;color:var(--fg)">
         Silenzio</a>
-      <div style="display:flex;gap:26px;align-items:center;color:var(--muted);font-size:13px;font-weight:520">
+      <div style="{{ navLinksStyle }}">
         <a href="Silenzio Landing.dc.html#vision" style="color:var(--muted);transition:.2s" style-hover="color:var(--fg)">Vision</a>
         <a href="Silenzio Landing.dc.html#technology" style="color:var(--muted);transition:.2s" style-hover="color:var(--fg)">Technology</a>
         <a href="Careers.dc.html" style="color:var(--fg);transition:.2s">Careers</a>
       </div>
-      <a href="mailto:jobs@silenzio.ai" style="display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 16px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:13px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18);color:var(--btn-fg)">Apply</a>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button onClick="{{ toggleNav }}" aria-label="Menu" style="{{ hamburgerStyle }}">
+          <span style="width:20px;height:2px;background:var(--fg);border-radius:2px;display:block"></span>
+          <span style="width:20px;height:2px;background:var(--fg);border-radius:2px;display:block"></span>
+        </button>
+        <a href="mailto:jobs@silenzio.io" style="display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 16px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:13px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18);color:var(--btn-fg)">Apply</a>
+      </div>
     </nav>
+    <div style="{{ dropdownStyle }}">
+      <a href="Silenzio Landing.dc.html#vision" onClick="{{ closeNav }}" style="padding:12px 14px;border-radius:12px;color:var(--fg);font-size:15px;font-weight:560">Vision</a>
+      <a href="Silenzio Landing.dc.html#technology" onClick="{{ closeNav }}" style="padding:12px 14px;border-radius:12px;color:var(--fg);font-size:15px;font-weight:560">Technology</a>
+      <a href="Careers.dc.html" onClick="{{ closeNav }}" style="padding:12px 14px;border-radius:12px;color:var(--fg);font-size:15px;font-weight:560">Careers</a>
+    </div>
   </div>
 
   <main>
-    <section style="padding:170px 0 60px">
-      <div style="width:min(1240px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end">
+    <section style="padding:{{ heroPad }}">
+      <div style="width:min(1240px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:{{ colsHeader }};gap:60px;align-items:end">
         <div>
           <div data-reveal="1" style="font:650 11px/1.2 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.13em;color:var(--muted2);margin-bottom:18px">Careers · 2 open roles</div>
           <h1 data-reveal="1" style="font-size:clamp(52px,7.6vw,104px);line-height:.92;letter-spacing:-.072em;margin:0;font-weight:600;max-width:900px;text-wrap:pretty">Build the interface <span style="color:var(--fg-soft)">that comes after the keyboard.</span></h1>
@@ -74,7 +85,7 @@
     </section>
 
     <section style="padding:20px 0 40px">
-      <div style="width:min(1240px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="width:min(1240px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:{{ colsRoles }};gap:16px">
 
         <article data-reveal="1" style="position:relative;border-radius:32px;padding:36px;overflow:hidden;display:flex;flex-direction:column;gap:22px;background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);box-shadow:0 18px 70px var(--shadow)" style-after="content:'';position:absolute;width:300px;height:300px;border-radius:50%;top:-160px;right:-120px;background:radial-gradient(circle,var(--glow1),var(--glow2) 42%,transparent 70%);filter:blur(4px)">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
@@ -88,7 +99,7 @@
             <div style="display:flex;gap:12px;align-items:baseline;border-top:1px solid var(--hair-soft);padding-top:10px"><span style="min-width:92px;font:500 10px/1.5 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--muted3)">Nice to have</span><span style="color:var(--muted);font-size:14px;line-height:1.5">EEG / EMG or invasive recordings, LLM or ASR fine-tuning, self-supervised and multi-GPU training.</span></div>
             <div style="display:flex;gap:12px;align-items:baseline;border-top:1px solid var(--hair-soft);padding-top:10px"><span style="min-width:92px;font:500 10px/1.5 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--muted3)">Terms</span><span style="color:var(--muted);font-size:14px;line-height:1.5">Full-time, 40h/week. Remote with occasional travel and on-site time.</span></div>
           </div>
-          <a href="mailto:jobs@silenzio.ai?subject=AI%20Scientist%20application&amp;body=Hi%20Silenzio%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20AI%20Scientist%20role.%20My%20CV%20is%20attached.%0A%0A" style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:13px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18);color:var(--btn-fg)">Apply for this role →</a>
+          <a href="mailto:jobs@silenzio.io?subject=AI%20Scientist%20application&amp;body=Hi%20Silenzio%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20AI%20Scientist%20role.%20My%20CV%20is%20attached.%0A%0A" style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:13px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18);color:var(--btn-fg)">Apply for this role →</a>
         </article>
 
         <article data-reveal="1" style="position:relative;border-radius:32px;padding:36px;overflow:hidden;display:flex;flex-direction:column;gap:22px;background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);box-shadow:0 18px 70px var(--shadow)" style-after="content:'';position:absolute;width:300px;height:300px;border-radius:50%;top:-160px;right:-120px;background:radial-gradient(circle,var(--glow3),var(--glow2) 42%,transparent 70%);filter:blur(4px)">
@@ -103,13 +114,13 @@
             <div style="display:flex;gap:12px;align-items:baseline;border-top:1px solid var(--hair-soft);padding-top:10px"><span style="min-width:92px;font:500 10px/1.5 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--muted3)">Participant</span><span style="color:var(--muted);font-size:14px;line-height:1.5">MSc in medicine, psychology or biology. Exceptional communication and empathy, scheduling and participant experience, ethics and consent.</span></div>
             <div style="display:flex;gap:12px;align-items:baseline;border-top:1px solid var(--hair-soft);padding-top:10px"><span style="min-width:92px;font:500 10px/1.5 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--muted3)">Terms</span><span style="color:var(--muted);font-size:14px;line-height:1.5">Full or part-time, 20–40h. Hands-on EEG/EMG experience is required. On-site in Rome, Italy</span></div>
           </div>
-          <a href="mailto:jobs@silenzio.ai?subject=Biosignal%20Data%20Collection%20Specialist%20application&amp;body=Hi%20Silenzio%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Biosignal%20Data%20Collection%20Specialist%20role%20%28track%3A%20engineering%20%2F%20participant-facing%29.%20My%20CV%20is%20attached.%0A%0A" style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:13px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18);color:var(--btn-fg)">Apply for this role →</a>
+          <a href="mailto:jobs@silenzio.io?subject=Biosignal%20Data%20Collection%20Specialist%20application&amp;body=Hi%20Silenzio%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Biosignal%20Data%20Collection%20Specialist%20role%20%28track%3A%20engineering%20%2F%20participant-facing%29.%20My%20CV%20is%20attached.%0A%0A" style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:13px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18);color:var(--btn-fg)">Apply for this role →</a>
         </article>
       </div>
     </section>
 
     <section style="padding:60px 0 40px">
-      <div style="width:min(1240px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:.5fr 1fr;gap:40px;align-items:start;border-top:1px solid var(--hair);padding-top:34px">
+      <div style="width:min(1240px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:{{ colsTeam }};gap:40px;align-items:start;border-top:1px solid var(--hair);padding-top:34px">
         <div data-reveal="1" style="font:650 11px/1.2 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.13em;color:var(--muted2)">The team</div>
         <p data-reveal="1" style="margin:0;color:var(--muted);font-size:20px;line-height:1.5;letter-spacing:-.02em;max-width:760px;text-wrap:pretty">We are a small, senior, international team building a human-machine interface as consequential as the mouse, the GUI and the touchscreen were before it. The work is collaborative, deeply technical, and meant to end up in people's hands.</p>
       </div>
@@ -120,7 +131,7 @@
         <div data-reveal="1" style="min-height:44vh;border-radius:42px;background:linear-gradient(145deg,var(--surface2),var(--surface));border:1px solid var(--border);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);box-shadow:0 26px 90px var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;gap:22px">
           <h2 style="font-size:clamp(40px,5.4vw,74px);line-height:.94;letter-spacing:-.068em;margin:0;font-weight:600">Neither role fits?</h2>
           <p style="max-width:540px;color:var(--muted);line-height:1.55;font-size:17px;margin:0">Write to us anyway. If you work on neural interfaces, speech decoding, wearable sensing or assistive communication, we want to know you.</p>
-          <a href="mailto:jobs@silenzio.ai?subject=Open%20application" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:14px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);color:var(--btn-fg)">jobs@silenzio.ai</a>
+          <a href="mailto:jobs@silenzio.io?subject=Open%20application" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:14px;font-weight:610;box-shadow:0 8px 24px var(--shadow);transition:.25s ease" style-hover="transform:translateY(-1px);color:var(--btn-fg)">jobs@silenzio.io</a>
         </div>
       </div>
     </section>
@@ -130,7 +141,7 @@
     <div style="width:min(1240px,calc(100% - 40px));margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid var(--hair);padding-top:24px;flex-wrap:wrap">
       <div>© 2026 Silenzio. Silent speech, decoded.</div>
       <div style="display:flex;gap:18px">
-        <a href="mailto:jobs@silenzio.ai" style="color:var(--muted2)">Jobs</a>
+        <a href="mailto:jobs@silenzio.io" style="color:var(--muted2)">Jobs</a>
         <a href="Silenzio Landing.dc.html#technology" style="color:var(--muted2)">Technology</a>
         <a href="Silenzio Landing.dc.html" style="color:var(--muted2)">Home</a>
       </div>
@@ -141,7 +152,13 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;backgroundIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.95,&quot;min&quot;:0.3,&quot;max&quot;:1.6,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Background&quot;}}">
 class Component extends DCLogic {
-  constructor(p){ super(p); this.bg = React.createRef(); }
+  constructor(p){
+    super(p);
+    this.state = { navOpen:false, narrow: typeof innerWidth !== 'undefined' && innerWidth < 760 };
+    this.bg = React.createRef();
+  }
+  toggleNav = () => this.setState(s => ({ navOpen: !s.navOpen }));
+  closeNav = () => this.setState({ navOpen: false });
   get P(){
     const dark = (this.props.theme ?? 'light') === 'dark';
     return dark ? {
@@ -159,7 +176,18 @@ class Component extends DCLogic {
     if(m) m.setAttribute('content', dark ? '#08070d' : '#f7f7f8');
   }
   componentDidUpdate(prev){ if(prev.theme !== this.props.theme) this.applyTheme(); }
-  renderVals(){ return { bgRef: this.bg }; }
+  renderVals(){
+    const nw = this.state.narrow;
+    const dropdownBase = 'margin-top:10px;display:flex;flex-direction:column;gap:2px;padding:10px;border:1px solid var(--border);border-radius:19px;background:var(--surface2);backdrop-filter:blur(22px) saturate(165%);-webkit-backdrop-filter:blur(22px) saturate(165%);box-shadow:0 12px 38px var(--shadow)';
+    return { bgRef: this.bg, toggleNav: this.toggleNav, closeNav: this.closeNav,
+             navLinksStyle: nw ? 'display:none' : 'display:flex;gap:26px;align-items:center;color:var(--muted);font-size:13px;font-weight:520',
+             hamburgerStyle: nw ? 'display:flex;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;border:none;background:transparent;cursor:pointer;padding:0' : 'display:none',
+             dropdownStyle: (nw && this.state.navOpen) ? dropdownBase : 'display:none',
+             heroPad: nw ? '140px 0 40px' : '170px 0 60px',
+             colsHeader: nw ? '1fr' : '1.2fr .8fr',
+             colsRoles: nw ? '1fr' : '1fr 1fr',
+             colsTeam: nw ? '1fr' : '.5fr 1fr' };
+  }
   componentDidMount(){
     this.applyTheme();
     this.t0 = performance.now();
@@ -177,7 +205,7 @@ class Component extends DCLogic {
       rot:(Math.random()<.5?-1:1)*(.00006+Math.random()*.0001)
     }));
     this.size();
-    this.onResize = () => this.size();
+    this.onResize = () => { this.size(); const nw = innerWidth < 760; if(nw !== this.state.narrow) this.setState({ narrow: nw }); };
     addEventListener('resize', this.onResize, {passive:true});
     this.raf = requestAnimationFrame(this.loop);
     this.initReveal();
